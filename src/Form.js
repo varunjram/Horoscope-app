@@ -25,7 +25,7 @@ export default function Form(prop) {
     }
 
     return errors;
-
+  };
 
   const formik = useFormik({
     initialValues: {
