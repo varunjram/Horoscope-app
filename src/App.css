@@ -1,38 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  /* /* width: 80%; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Form {
+  width: 20em;
+  height: 70%;
+  background-color: lightcoral;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Display {
+  width: 50%;
+  height: 70%;
+  background-color: lightgreen;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.InputForm {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 2em;
+}
+
+.Radiobox {
+  margin: 10px 0px;
+}
+.Radiobox > .field-radiobutton {
+  display: flex;
+  margin: 10px 5px;
+}
+.Radiobox label {
+  padding-left: 0.5em;
+}
+
+.label-input {
+  margin: 0.3em 0em;
+}
+.submitbtn.p-button.p-component {
+  /* margin: auto; */
+  margin: 2em 4em 0em 4em;
+  /* background-color: blanchedalmond; */
+}
+
+/* CSS for Display-Form */
+.Display-Details {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.Sign {
+  font-size: 50px;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  text-align: center;
+  padding-left: 0.5em;
+  text-transform: uppercase;
+  /* font-size: ; */
+}
+.Sign,
+.Date-Range {
+  font-family: "Courgette", cursive;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Description {
+  font-size: 18px;
+  text-align: justify;
+}
+
+.Description > p {
+  margin: 2em;
+}
+
+.Extra-Info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 5px;
+}
+
+.Extra-Info > div {
+  width: 8em;
+  align-self: flex-end;
+}
+.Extra-Info-divs {
+  margin: 0.5em 0em;
+}
+.Extra-Info-divs div:first-child {
+  font-size: 18px;
+}
+.Extra-Info-divs div:nth-child(2) {
+  font-size: 14px;
+}
+
+/* Fro 425px */
+
+@media only screen and (max-width: 425px) {
+  .App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .Form {
+    width: 20em;
+    height: auto;
+    background-color: lightcoral;
   }
+
+  .Display {
+    width: 20em;
+    height: auto;
+    background-color: lightgreen;
+  }
+
+  /* body{
+  disableScrollParentFix={true}
+  min-width: none;
+  height: grid-auto-flow: ;;
+
+
+ } */
 }
