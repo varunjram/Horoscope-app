@@ -58,7 +58,7 @@ export default function Form(prop) {
     <div className="Inputcontainer">
       <form onSubmit={formik.handleSubmit} className="InputForm">
         <label htmlFor="sign" className="label-input">
-          Sign
+          Zodiac Sign
         </label>
         <Dropdown
           id="sign"

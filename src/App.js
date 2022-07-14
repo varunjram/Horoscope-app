@@ -27,15 +27,24 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="Form">
-        <Form fetchdata={fetchdata} />
+    <div>
+      <div className="Heading">
+        <h1>HOROSCOPE</h1>
+        <p>
+          “Your path is illuminated by a road-map of stars. I am here to guide
+          you!”
+        </p>
       </div>
-      {formData && (
-        <div className="Display">
-          <Display data={formData} details={Displaydetails} />
+      <div className="App">
+        <div className="Form">
+          <Form fetchdata={fetchdata} />
         </div>
-      )}
+        {formData && (
+          <div className="Display">
+            <Display data={formData} details={Displaydetails} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
