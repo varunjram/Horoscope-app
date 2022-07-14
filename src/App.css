@@ -23,14 +23,16 @@ body {
 
 .Form {
   width: 20em;
-  height: 70%;
-  background-color: lightcoral;
+  height: 72%;
+  background-color: #00203fff;
+  color: #adefd1ff;
 }
 
 .Display {
   width: 50%;
-  height: 70%;
-  background-color: lightgreen;
+  height: 72%;
+  background-color: #adefd1ff;
+  color: #00203fff;
 }
 
 .InputForm {
@@ -121,9 +123,9 @@ body {
   transition: width 2s;
 }
 
-/* Fro 425px */
+/* For 425px */
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 426px) {
   .App {
     display: flex;
     justify-content: center;
@@ -133,14 +135,12 @@ body {
 
   .Form {
     width: 20em;
-    height: auto;
-    background-color: lightcoral;
+    height: 82%;
   }
 
   .Display {
     width: 20em;
     height: auto;
-    background-color: lightgreen;
   }
 
   /* body{

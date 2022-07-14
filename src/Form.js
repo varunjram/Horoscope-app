@@ -25,7 +25,7 @@ export default function Form(prop) {
     }
 
     return errors;
-  };
+
 
   const formik = useFormik({
     initialValues: {
@@ -36,8 +36,8 @@ export default function Form(prop) {
     },
     validate,
     onSubmit: (values) => {
-      console.log(values);
-      prop.fetchdata(values); // alert(JSON.stringify(values, null, 2));
+      prop.fetchdata(values);
+      formik.resetForm();
     },
   });
 
