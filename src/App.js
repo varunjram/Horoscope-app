@@ -1,19 +1,18 @@
 import "./App.css";
 
 import Form from "./Form.js";
-import { Display } from "./Form.js";
+import Display from "./Display.js";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css"; //icons
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function App() {
-  const [Magic, setMagic] = useState("");
+  const [formData, setFormData] = useState("");
   const [Displaydetails, SetDisplaydetails] = useState([]);
   const fetchdata = (log) => {
-    console.log(SetDisplaydetails(log));
-    console.log(log.sign, log.day);
+    SetDisplaydetails(log);
 
     fetch(
       `https://aztro.sameerkumar.website/?sign=${log.sign}&day=${log.day}`,
@@ -23,25 +22,18 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        setMagic(data);
-        console.log(Magic);
+        setFormData(data);
       });
   };
-
-  console.log(Magic);
-
-  useEffect(() => {
-    window.localStorage.setItem("Magic", JSON.stringify(Magic));
-  }, [Magic]);
 
   return (
     <div className="App">
       <div className="Form">
         <Form fetchdata={fetchdata} />
       </div>
-      {Magic && (
+      {formData && (
         <div className="Display">
-          <Display data={Magic} details={Displaydetails} />
+          <Display data={formData} details={Displaydetails} />
         </div>
       )}
     </div>

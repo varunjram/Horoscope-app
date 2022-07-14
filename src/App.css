@@ -90,10 +90,10 @@ body {
 
 .Extra-Info {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  margin-left: 5px;
+  margin-left: 50px;
 }
 
 .Extra-Info > div {
