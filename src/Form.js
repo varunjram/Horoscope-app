@@ -6,13 +6,40 @@ import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
 import { RadioButton } from "primereact/radiobutton";
-import { useState } from "react";
+// import { useState } from "react";
+import { useFormik } from "formik";
+import { formik } from "formik";
 
 export default function Form(prop) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [sign, setSign] = useState("");
-  const [day, setDay] = useState("");
+  const validate = (values) => {
+    const errors = {};
+
+    if (!values.email) {
+      errors.email = "Required";
+    } else if (values.email.length < 4) {
+      errors.email = "Must be 5 characters or more";
+    }
+
+    if (!values.name) {
+      errors.name = "Required";
+    }
+
+    return errors;
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      name: "",
+      sign: "",
+      day: "",
+    },
+    validate,
+    onSubmit: (values) => {
+      console.log(values);
+      prop.fetchdata(values); // alert(JSON.stringify(values, null, 2));
+    },
+  });
 
   const signsItems = [
     { label: "Aries", value: "aries" },
@@ -29,25 +56,20 @@ export default function Form(prop) {
     { label: "Capricorn", value: "capricorn" },
   ];
 
-  const handlechange = (e) => {
-    // console.log({ name, email, sign, day });
-    prop.fetchdata({ name, email, sign, day });
-    e.preventDefault();
-  };
-
   return (
     <div className="Inputcontainer">
-      <form onSubmit={handlechange} className="InputForm">
+      <form onSubmit={formik.handleSubmit} className="InputForm">
         <label htmlFor="sign" className="label-input">
           Sign
         </label>
         <Dropdown
+          id="sign"
           className="margin10"
-          value={sign}
+          value={formik.values.sign}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
           options={signsItems}
-          onChange={(e) => setSign(e.value)}
           placeholder="Select a Sign"
-          // required
         />
 
         <label htmlFor="name" className="label-input">
@@ -58,45 +80,49 @@ export default function Form(prop) {
             <i className="pi pi-user"></i>
           </span>
           <InputText
-            value={name}
-            type="text"
             id="name"
+            name="name"
+            type="text"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             className="input-name"
-            onChange={(e) => setName(e.target.value)}
-            required
           />
         </div>
+        {formik.touched.name && formik.errors.name ? (
+          <p className="error">{formik.errors.name}</p>
+        ) : null}
 
         <div className="Radiobox">
           <div className="field-radiobutton">
             <RadioButton
-              inputId="today"
-              name="Today"
+              inputId="day1"
+              name="day"
               value="today"
-              onChange={(e) => setDay(e.value)}
-              checked={day === "today"}
+              onChange={formik.handleChange}
+              checked={formik.values.day === "today"}
             />
-            <label htmlFor="today">Today</label>
+            <label htmlFor="day1">Today</label>
           </div>
           <div className="field-radiobutton">
             <RadioButton
-              inputId="tomorrow"
-              name="Tomorrow"
+              inputId="day2"
+              name="day"
               value="tomorrow"
-              onChange={(e) => setDay(e.value)}
-              checked={day === "tomorrow"}
+              onChange={formik.handleChange}
+              checked={formik.values.day === "tomorrow"}
             />
-            <label htmlFor="city2">Tomorrow</label>
+            <label htmlFor="day2">Tomorrow</label>
           </div>
           <div className="field-radiobutton">
             <RadioButton
-              inputId="yesterday"
-              name="Yesterday"
+              inputId="day3"
+              name="day"
               value="yesterday"
-              onChange={(e) => setDay(e.value)}
-              checked={day === "yesterday"}
+              onChange={formik.handleChange}
+              checked={formik.values.day === "yesterday"}
             />
-            <label htmlFor="city3">Yesterday</label>
+            <label htmlFor="day3">Yesterday</label>
           </div>
         </div>
 
@@ -108,14 +134,18 @@ export default function Form(prop) {
             <i className="pi pi-envelope" />
           </span>
           <InputText
-            value={email}
             type="email"
             id="email"
+            name="email"
             className="input-email"
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            onChange={formik.handleChange}
+            nBlur={formik.handleBlur}
+            value={formik.values.email}
           />
         </div>
+        {formik.touched.email && formik.errors.email ? (
+          <p className="error">{formik.errors.email}</p>
+        ) : null}
 
         {/* <input type="submit" className="submitbtn" label="Primary" /> */}
         <Button

@@ -113,6 +113,14 @@ body {
   font-size: 14px;
 }
 
+.error {
+  font-size: 14px;
+  color: yellow;
+  margin-top: 10px;
+  /* margin-bottom: 10px; */
+  transition: width 2s;
+}
+
 /* Fro 425px */
 
 @media only screen and (max-width: 425px) {
