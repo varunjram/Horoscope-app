@@ -1,12 +1,10 @@
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css"; //icons
-
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
 import { RadioButton } from "primereact/radiobutton";
-// import { useState } from "react";
 import { useFormik } from "formik";
 import { formik } from "formik";
 
@@ -147,7 +145,6 @@ export default function Form(prop) {
           <p className="error">{formik.errors.email}</p>
         ) : null}
 
-        {/* <input type="submit" className="submitbtn" label="Primary" /> */}
         <Button
           icon="pi pi-check"
           label="Submit"
