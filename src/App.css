@@ -23,7 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   /* width: 100vw; */
-  /* height: 100vh; */
+  /* height: */
   position: relative;
   align-items: stretch;
 }
@@ -171,5 +171,37 @@ body {
   .Heading > p {
     font-size: 19px;
     text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1018px), (min-width: 850px) {
+  .Extra-Info > div {
+    width: 7em;
+  }
+  .Extra-Info {
+    margin: 10px;
+  }
+  .Extra-Info-divs div:first-child {
+    font-size: 15px;
+  }
+  .Extra-Info-divs div:nth-child(2) {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 850px) (min-width: 426px) {
+  .Display {
+    width: 60%;
+  }
+  .Extra-Info > div {
+    width: 7em;
+  }
+  .Extra-Info {
+    margin: 10px;
+  }
+  .Extra-Info-divs div:first-child {
+    font-size: 15px;
+  }
+  .Extra-Info-divs div:nth-child(2) {
+    font-size: 12px;
   }
 }
