@@ -188,7 +188,7 @@ body {
     font-size: 12px;
   }
 }
-@media only screen and (max-width: 850px) (min-width: 426px) {
+@media only screen and (max-width: 850px), (min-width: 426px) {
   .Display {
     width: 60%;
   }
