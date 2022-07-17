@@ -2,6 +2,7 @@ import "./App.css";
 
 import Form from "./Form.js";
 import Display from "./Display.js";
+import { Quotes } from "./Quotes";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
@@ -30,10 +31,7 @@ function App() {
     <div>
       <div className="Heading">
         <h1>HOROSCOPE</h1>
-        <p>
-          “Your path is illuminated by a road-map of stars. I am here to guide
-          you!”
-        </p>
+        <p>{Quotes[Math.floor(Math.random() * Quotes.length)]}</p>
       </div>
       <div className="App">
         <div className="Form">
